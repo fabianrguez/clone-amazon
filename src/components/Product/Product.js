@@ -12,13 +12,16 @@ function Product({ title, image, price, rating }) {
           <strong>{price}</strong>
         </p>
         <div className="product__rating">
-            {Array(rating).fill().map(_ => <p><Star /></p>)}
+          {Array(rating)
+            .fill()
+            .map((_, index) => (
+              <p key={index}>
+                <Star />
+              </p>
+            ))}
         </div>
       </div>
-      <img
-        src={image}
-        alt={title}
-      />
+      <img src={image} alt={title} />
       <button>Add to basket</button>
     </div>
   );
