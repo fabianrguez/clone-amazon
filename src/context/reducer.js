@@ -2,9 +2,10 @@ import actionType from './actionType';
 
 const initialState = {
   basket: [],
+  basketItemsTotal: 0,
 };
 
-function modifyBasket(basket, itemIndex) {
+function modifyItemQuantityFromBasket(basket, itemIndex) {
   basket[itemIndex] = {
     ...basket[itemIndex],
     quantity: basket[itemIndex].quantity + 1,
@@ -19,10 +20,10 @@ const reducer = (state, action) => {
         (item) => item.id === action.item.id
       );
       if (index >= 0) {
-        const { basket } = state;
+        const basket = [...state.basket];
         return {
           ...state,
-          basket: [...modifyBasket(basket, index)],
+          basket: [...modifyItemQuantityFromBasket(basket, index)],
         };
       } else {
         return {
@@ -30,6 +31,11 @@ const reducer = (state, action) => {
           basket: [...state.basket, { ...action.item, quantity: 1 }],
         };
       }
+    case actionType.REMOVE_FROM_BASKET:
+      return {
+        ...state,
+        basket: state.basket.filter((item) => item.id !== action.id),
+      };
     default:
       return state;
   }
