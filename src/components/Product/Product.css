@@ -29,13 +29,18 @@
   margin-top: 5px;
 }
 
-.product button {
+.product > button {
   background: #f9c14b;
   border: 1px solid;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
   cursor: pointer;
+  outline: none;
+}
+
+.product > button:active {
+  opacity: 0.8;
 }
 
 .product__rating {
