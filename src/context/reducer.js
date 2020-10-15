@@ -2,7 +2,7 @@ import actionType from './actionType';
 
 const initialState = {
   basket: [],
-  basketItemsTotal: 0,
+  user: null,
 };
 
 function modifyItemQuantityFromBasket(basket, itemIndex) {
@@ -35,6 +35,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         basket: state.basket.filter((item) => item.id !== action.id),
+      };
+    case actionType.SET_USER:
+      return {
+        ...state,
+        user: action.user,
       };
     default:
       return state;
