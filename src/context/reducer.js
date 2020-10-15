@@ -6,6 +6,15 @@ const initialState = {
   basketItemsTotal: 0,
 };
 
+function modifyBasket(basket, itemIndex) {
+  console.log('modify');
+  basket[itemIndex] = {
+    ...basket[itemIndex],
+    quantity: basket[itemIndex].quantity + 1,
+  };
+  return basket;
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case actionType.ADD_TO_BASKET:
@@ -13,14 +22,10 @@ const reducer = (state, action) => {
         (item) => item.id === action.item.id
       );
       if (index >= 0) {
+        const { basket } = state;
         return {
           ...state,
-          basket: [
-            {
-              ...state.basket[index],
-              quantity: state.basket[index].quantity + 1,
-            },
-          ],
+          basket: [...modifyBasket(basket, index)],
           subtotal: state.subtotal + action.item.price,
           basketItemsTotal: state.basketItemsTotal + 1,
         };
