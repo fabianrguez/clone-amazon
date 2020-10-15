@@ -1,10 +1,12 @@
 import React from 'react';
+import { getBasketItemsTotal, getBasketTotal } from '../../context/selectors';
 import { useStateValue } from '../../context/StateProvider';
 import './Checkout.css';
 import Subtotal from './Subtotal/Subtotal';
 
 function Checkout() {
-  const [{ basket, subtotal, basketItemsTotal }] = useStateValue();
+  const [{ basket }] = useStateValue();
+
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -18,7 +20,10 @@ function Checkout() {
         </div>
       </div>
       <div className="checkout__right">
-        <Subtotal itemsTotal={basketItemsTotal} subtotal={subtotal} />
+        <Subtotal
+          itemsTotal={getBasketItemsTotal(basket)}
+          subtotal={getBasketTotal(basket)}
+        />
       </div>
     </div>
   );

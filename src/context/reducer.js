@@ -2,12 +2,9 @@ import actionType from './actionType';
 
 const initialState = {
   basket: [],
-  subtotal: 0,
-  basketItemsTotal: 0,
 };
 
 function modifyBasket(basket, itemIndex) {
-  console.log('modify');
   basket[itemIndex] = {
     ...basket[itemIndex],
     quantity: basket[itemIndex].quantity + 1,
@@ -26,15 +23,11 @@ const reducer = (state, action) => {
         return {
           ...state,
           basket: [...modifyBasket(basket, index)],
-          subtotal: state.subtotal + action.item.price,
-          basketItemsTotal: state.basketItemsTotal + 1,
         };
       } else {
         return {
           ...state,
           basket: [...state.basket, { ...action.item, quantity: 1 }],
-          subtotal: state.subtotal + action.item.price,
-          basketItemsTotal: state.basketItemsTotal + 1,
         };
       }
     default:
