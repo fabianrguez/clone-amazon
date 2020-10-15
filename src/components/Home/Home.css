@@ -12,3 +12,9 @@
   margin-bottom: -150px;
   mask-image: linear-gradient(180deg, #000, transparent);
 }
+
+@media only screen and (max-width: 517px) {
+  .home__image {
+    margin-bottom: -135px;
+  }
+}

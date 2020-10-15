@@ -72,3 +72,9 @@
   margin-right: 10px;
   margin-left: 2px;
 }
+
+@media only screen and (max-width: 517px) {
+  .header__primeOption, .header__returnOption {
+    display: none;
+  }
+}
