@@ -55,3 +55,8 @@
 .payment__details > form > div > button:active {
   opacity: 0.8;
 }
+
+.payment__details > form > div > button:disabled {
+  cursor: default;
+  background-color: lightgray;
+}

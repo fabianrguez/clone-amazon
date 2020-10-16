@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instace = axios.create({
-  baseURL: 'http://localhost:5001/clone-ama-zon/us-central1/api',
+  baseURL: 'https://clone-amazon-serverless.netlify.app/.netlify/functions/api',
 });
 
 export default instace;

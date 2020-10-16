@@ -7,15 +7,17 @@ const serverless = require('serverless-http');
 
 const app = express();
 
-app.use(cors({ origin: false }));
+app.use(cors({ origin: ['http://localhost:3000'] }));
 app.use(express.json());
 
 app.post('/.netlify/functions/api/payments/create', async (req, res) => {
   const total = req.query.total;
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: total,
-    currency: 'usd',
-  });
+  const paymentIntent = await stripe.paymentIntents
+    .create({
+      amount: total,
+      currency: 'usd',
+    })
+    .catch((error) => console.log(error));
   res.status(201).send({ clientSecret: paymentIntent.client_secret });
 });
 
