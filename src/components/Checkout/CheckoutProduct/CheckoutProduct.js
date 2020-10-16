@@ -4,13 +4,22 @@ import actionType from '../../../context/actionType';
 import { useStateValue } from '../../../context/StateProvider';
 import './CheckoutProduct.css';
 
-function CheckoutProduct({ id, image, title, price, rating, quantity }) {
+function CheckoutProduct({
+  id,
+  image,
+  title,
+  price,
+  rating,
+  quantity,
+  hideButton,
+}) {
   const [, dispatch] = useStateValue();
 
-  const removeFromBasket = () => dispatch({
-    type: actionType.REMOVE_FROM_BASKET,
-    id: id
-  });
+  const removeFromBasket = () =>
+    dispatch({
+      type: actionType.REMOVE_FROM_BASKET,
+      id: id,
+    });
 
   return (
     <div className="checkoutProduct">
@@ -34,7 +43,9 @@ function CheckoutProduct({ id, image, title, price, rating, quantity }) {
           <small>Quantity: </small>
           <strong>{quantity}</strong>
         </p>
-        <button onClick={removeFromBasket}>Remove from basket</button>
+        {!hideButton && (
+          <button onClick={removeFromBasket}>Remove from basket</button>
+        )}
       </div>
     </div>
   );

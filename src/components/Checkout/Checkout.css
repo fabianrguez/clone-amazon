@@ -22,12 +22,13 @@
 }
 
 .checkout__right {
-  flex: 1;
-  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-@media only screen and (max-width: 517px) {
+@media only screen and (max-width: 711px) {
   .checkout__right {
     margin-top: 10px;
+    flex: 1;
   }
 }
