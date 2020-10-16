@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "netlify dev",
-    "build": "netlify-lambda build src"
+    "dev": "netlify dev"
   },
   "author": "",
   "license": "ISC",
