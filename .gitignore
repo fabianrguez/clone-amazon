@@ -26,4 +26,5 @@ firebase.js
 *.code-workspace
 # Local Netlify folder
 .netlify
-functions
+/functions
+/serverless/node_modules
