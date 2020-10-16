@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({ origin: false }));
 app.use(express.json());
 
-app.post('/payments/create', async (req, res) => {
+app.post('/.netlify/functions/api/payments/create', async (req, res) => {
   const total = req.query.total;
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
