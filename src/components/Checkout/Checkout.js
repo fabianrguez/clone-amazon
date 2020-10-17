@@ -17,20 +17,30 @@ function Checkout() {
           alt="banner"
         />
         <div>
-          <h2 className="checkout__title">Your shopping basket</h2>
+          <h2 className="checkout__title">
+            Your shopping basket
+            {getBasketItemsTotal(basket) === 0 && ' is empty'}
+          </h2>
           <div className="checkout__products">
-            {basket?.map((item) => (
-              <CheckoutProduct key={item.id} {...item} />
-            ))}
+            {getBasketItemsTotal(basket) > 0 ? (
+              basket?.map((item) => <CheckoutProduct key={item.id} {...item} />)
+            ) : (
+              <p>
+                You have no items in your basket. To buy one or more items,
+                click "Add to basket" next to the item.
+              </p>
+            )}
           </div>
         </div>
       </div>
-      <div className="checkout__right">
-        <Subtotal
-          itemsTotal={getBasketItemsTotal(basket)}
-          subtotal={getBasketTotal(basket)}
-        />
-      </div>
+      {getBasketItemsTotal(basket) > 0 && (
+        <div className="checkout__right">
+          <Subtotal
+            itemsTotal={getBasketItemsTotal(basket)}
+            subtotal={getBasketTotal(basket)}
+          />
+        </div>
+      )}
     </div>
   );
 }

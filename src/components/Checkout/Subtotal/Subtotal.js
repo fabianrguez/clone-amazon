@@ -25,7 +25,10 @@ function Subtotal({ itemsTotal, subtotal }) {
         thousandSeparator
         prefix="$"
       />
-      <button onClick={(e) => history.push('/checkout/payment')}>
+      <button
+        onClick={() => history.push('/checkout/payment')}
+        disabled={itemsTotal === 0}
+      >
         Proceed to checkout
       </button>
     </div>

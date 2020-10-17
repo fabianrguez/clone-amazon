@@ -26,9 +26,17 @@
   justify-content: center;
 }
 
+.checkout__products > p {
+  margin-top: 10px;
+}
+
 @media only screen and (max-width: 711px) {
   .checkout__right {
     margin-top: 10px;
+    flex: 1;
+  }
+
+  .checkout__left {
     flex: 1;
   }
 }

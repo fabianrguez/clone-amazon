@@ -33,5 +33,10 @@
 }
 
 .subtotal > button:active {
-    opacity: 0.8;
+  opacity: 0.8;
+}
+
+.subtotal > button:disabled {
+  cursor: default;
+  background-color: lightgray;
 }
