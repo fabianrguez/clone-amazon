@@ -28,3 +28,4 @@ firebase.js
 .netlify
 /functions
 /serverless/node_modules
+.firebase
