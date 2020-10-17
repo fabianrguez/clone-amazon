@@ -12,6 +12,7 @@ import axios from '../../../axios';
 import './Payment.css';
 import actionType from '../../../context/actionType';
 import db from '../../../firebase';
+import LoadingSvg from '../../LoadingSvg/LoadingSvg';
 
 function Payment() {
   const [{ user, basket }, dispatch] = useStateValue();
@@ -118,7 +119,16 @@ function Payment() {
                   prefix="$"
                 />
                 <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
+                  <span>
+                    {processing ? (
+                      <p>
+                        <LoadingSvg />
+                        Processing
+                      </p>
+                    ) : (
+                      'Buy Now'
+                    )}
+                  </span>
                 </button>
               </div>
             </form>
