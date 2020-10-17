@@ -8,7 +8,4 @@ To process the payment a lambda function is used. This function is deployed in N
 
 ## Live demo
 
-The web app is deployed in firebase hosting
-```
-https://clone-ama-zon.web.app
-```
+This [Amazon Clone](https://clone-ama-zon.web.app) is deployed in firebase hosting
