@@ -2,9 +2,15 @@ import React from 'react';
 import './Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import { useHistory } from 'react-router-dom';
+import { useStateValue } from '../../../context/StateProvider';
 
 function Subtotal({ itemsTotal, subtotal }) {
+  const [{ user }] = useStateValue();
   const history = useHistory();
+
+  const continueToPayment = () => {
+    user ? history.push('/checkout/payment') : history.push('/login');
+  };
 
   return (
     <div className="subtotal">
@@ -25,10 +31,7 @@ function Subtotal({ itemsTotal, subtotal }) {
         thousandSeparator
         prefix="$"
       />
-      <button
-        onClick={() => history.push('/checkout/payment')}
-        disabled={itemsTotal === 0}
-      >
+      <button onClick={continueToPayment} disabled={itemsTotal === 0}>
         Proceed to checkout
       </button>
     </div>

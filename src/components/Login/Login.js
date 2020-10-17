@@ -13,7 +13,7 @@ function Login() {
 
   const handleUserExists = (auth) => {
     dispatch({ type: actionType.SET_USER, user: auth.user });
-    auth?.user && history.push('/');
+    auth?.user && history.goBack();
   };
 
   const signIn = (e) => {
