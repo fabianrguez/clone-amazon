@@ -14,7 +14,7 @@ function Login() {
   const handleUserExists = (auth) => {
     dispatch({ type: actionType.SET_USER, user: auth.user });
     auth?.user && history.push('/');
-  }
+  };
 
   const signIn = (e) => {
     e.preventDefault();
@@ -50,7 +50,8 @@ function Login() {
         <form className="login__form" onSubmit={signIn}>
           <h5>E-mail</h5>
           <input
-            type="text"
+            autoCapitalize="off"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />

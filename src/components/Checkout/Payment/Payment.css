@@ -75,3 +75,13 @@
   padding: 0 15px 15px;
   margin: 20px;
 }
+
+@media only screen and (max-width: 517px) {
+  .payment__section {
+    flex-direction: column;
+  }
+
+  .payment__address {
+    margin-top: 10px;
+  }
+}
